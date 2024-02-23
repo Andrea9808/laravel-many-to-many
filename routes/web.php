@@ -10,3 +10,11 @@ Route::get('/', [ProjectController::class, 'index'])
 
 Route::get('/types', [TypeController::class, 'index'])
     ->name('type.index');
+
+//create
+Route::get('/create',[ProjectController::class, 'create'])
+    ->name('project.create');
+
+//store
+Route::get('/create',[ProjectController::class, 'store'])
+    ->name('project.store');

@@ -7,12 +7,12 @@
     <ul>
         @foreach ($types as $type)
             <div class="project-container">
-                <h1 class="project-title">Type project</h1>
+                <h1>Type project</h1>
                 <span class="type-details">{{$type->name}} - {{$type->date}}</span>
 
-                <h1 class="project-title">Description:</h1>
                 @foreach ($type->projects as $project)
-                    <p class="project-description">{{$project->description}}</p>
+                    <p class="text-white">Project name:{{$project->name}}</p>
+                    <p class="text-white">Description: {{$project->description}}</p>
                 @endforeach
             </div>
         @endforeach
