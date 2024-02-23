@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             //project ha la chiave esterna
             ProjectTableSeeder :: class,
 
+            TechnologyTableSeeder :: class,
+
         ]);
 
     }

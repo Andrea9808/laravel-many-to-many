@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Technology>
  */
-class ProjectFactory extends Factory
+class TechnologyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,7 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-
-            'name'=>fake()->word(),
-            'description'=>fake()->sentence(),
-
+            'name'=>fake()->unique()->word(),
         ];
     }
 }
