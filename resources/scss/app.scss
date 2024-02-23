@@ -1,0 +1,49 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+.project-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #c14d4d;
+}
+
+.project-title {
+    color: #e7e3e3;
+}
+
+.type-title {
+    color: #007bff;
+}
+
+.type-details {
+    margin-top: 10px;
+}
+
+.type-name, .type-date {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.project-description {
+    margin-top: 10px;
+}
