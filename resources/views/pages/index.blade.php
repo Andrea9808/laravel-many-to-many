@@ -3,6 +3,8 @@
     <title>Home</title>
 @endsection
 @section('content')
+<h1>Projects</h1>
+<a href="{{route('project.create')}}"> <button type="button" class="btn btn-success">Create</button></a>
     <ul>
         @foreach ($projects as $project)
             <div class="project-container">
@@ -22,7 +24,7 @@
                     <h6 class="type-date">DATE:{{$project->type->date}}</h6>
                 </div>
 
-                <a href="{{route('project.create')}}"> <button type="button" class="btn btn-success">Create</button></a>
+
             </div>
         @endforeach
     </ul>

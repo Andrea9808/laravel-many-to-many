@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1 class="text-center">New Project</h1>
-    <form action="{{route('project.store')}}">
+    <form action="{{route('project.store')}}" method="POST">
 
         @csrf
         @method('POST')
@@ -18,12 +18,16 @@
             <input type="text" name="description" id="description">
         </div>
         <div>
-            <label for="technology">Technology:</label>
-            <input type="text" name="technology" id="technology">
+            <label for="technology_id">Technology:</label>
+            <select name="technology_id" id="technology_id">
+                @foreach ($technologies as $technology)
+                    <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="project">Type:</label>
-            <select name="type" id="type">
+            <select name="type_id" id="type_id">
                 @foreach ($types as $type)
                     <option value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach

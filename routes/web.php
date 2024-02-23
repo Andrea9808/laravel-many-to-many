@@ -16,5 +16,5 @@ Route::get('/create',[ProjectController::class, 'create'])
     ->name('project.create');
 
 //store
-Route::get('/create',[ProjectController::class, 'store'])
+Route::post('/create',[ProjectController::class, 'store'])
     ->name('project.store');
