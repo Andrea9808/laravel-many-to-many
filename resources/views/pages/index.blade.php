@@ -24,7 +24,7 @@
                     <h6 class="type-date">DATE:{{$project->date}}</h6>
                 </div>
 
-
+                <a href="{{route('project.edit', $project->id)}}"> <button type="button" class="btn btn-success">Edit</button></a>
             </div>
         @endforeach
     </ul>

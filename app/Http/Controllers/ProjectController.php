@@ -39,8 +39,44 @@ class ProjectController extends Controller
         // Generato prima il type_id
         $project->save();
 
+
+        //le relazioni many to many dopo il save
         $technology = Technology::find($data['technology_id']);
         $project->technologies()->attach($technology);
+
+        return redirect()->route('project.index');
+    }
+
+    public function edit($id){
+
+        $projects = Project::find($id);
+        $technologies = Technology::all();
+        $types = Type::all();
+
+        return view('pages.edit', compact('projects','technologies', 'types'));
+    }
+
+
+    public function update(Request $request, $id){
+        $data = $request->all();
+
+        $project = Project::find($id);
+        $project->name = $data['name'];
+        $project->description = $data['description'];
+        $project->date = $data['date'];
+
+        $type = Type::find($data['type_id']);
+        $project->type()->associate($type);
+
+
+
+        // Generato prima il type_id
+        $project->save();
+
+
+        //le relazioni many to many dopo il save
+        $technology = Technology::find($data['technology_id']);
+        $project->technologies()->sync($technology);
 
         return redirect()->route('project.index');
     }

@@ -18,3 +18,11 @@ Route::get('/create',[ProjectController::class, 'create'])
 //store
 Route::post('/create',[ProjectController::class, 'store'])
     ->name('project.store');
+
+//edit
+Route::get('/edit/{id}',[ProjectController::class, 'edit'])
+    ->name('project.edit');
+
+//update
+Route::put('/edit/{id}',[ProjectController::class, 'update'])
+    ->name('project.update');
