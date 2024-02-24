@@ -29,11 +29,14 @@ class ProjectController extends Controller
         $project = new Project();
         $project->name = $data['name'];
         $project->description = $data['description'];
-
+        $project->date = $data['date'];
 
         $type = Type::find($data['type_id']);
         $project->type()->associate($type);
 
+
+
+        // Generato prima il type_id
         $project->save();
 
         $technology = Technology::find($data['technology_id']);
@@ -42,3 +45,5 @@ class ProjectController extends Controller
         return redirect()->route('project.index');
     }
 }
+
+

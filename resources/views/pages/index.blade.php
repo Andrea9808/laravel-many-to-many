@@ -21,7 +21,7 @@
                 <div class="type-details">
                     <h3 class="type-title">Type Project</h3>
                     <h6 class="type-name">TYPE NAME:{{$project->type->name}}</h6>
-                    <h6 class="type-date">DATE:{{$project->type->date}}</h6>
+                    <h6 class="type-date">DATE:{{$project->date}}</h6>
                 </div>
 
 

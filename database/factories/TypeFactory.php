@@ -19,7 +19,6 @@ class TypeFactory extends Factory
         return [
 
             'name' => fake() -> word(),
-            'date' => fake() -> dateTime(),
 
         ];
     }
