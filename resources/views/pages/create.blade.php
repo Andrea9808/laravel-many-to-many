@@ -20,12 +20,25 @@
             </div>
 
             <div class="form-group">
-                <label for="technology_id">Technology:</label>
-                <select name="technology_id" id="technology_id" class="form-control">
+                <label for="technology_id">Technology:</label><br>
+                {{-- <select name="technology_id" id="technology_id" class="form-control">
                     @foreach ($technologies as $technology)
                         <option value="{{ $technology->id }}">{{ $technology->name }}</option>
                     @endforeach
-                </select>
+                </select> --}}
+                @foreach ($technologies as $technology)
+
+                    <div>
+                        <label for="{{"technology-" . $technology->id}}">
+                            {{$technology->name}}
+                        </label>
+                        <input type="checkbox" name="technology_id[]"
+                        value="{{$technology->id}}"
+                        id="{{'technology-' . $technology->id}}">
+
+                    </div>
+
+                @endforeach
             </div>
 
             <div class="form-group">

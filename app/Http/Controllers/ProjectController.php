@@ -41,8 +41,7 @@ class ProjectController extends Controller
 
 
         //le relazioni many to many dopo il save
-        $technology = Technology::find($data['technology_id']);
-        $project->technologies()->attach($technology);
+        $project->technologies()->attach($data['technology_id']);
 
         return redirect()->route('project.index');
     }
@@ -74,9 +73,8 @@ class ProjectController extends Controller
         $project->save();
 
 
-        //le relazioni many to many dopo il save
-        $technology = Technology::find($data['technology_id']);
-        $project->technologies()->sync($technology);
+       //le relazioni many to many dopo il save
+       $project->technologies()->sync($data['technology_id']);
 
         return redirect()->route('project.index');
     }
