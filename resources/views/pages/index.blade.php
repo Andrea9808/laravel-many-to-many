@@ -25,7 +25,19 @@
                         <h6 class="type-date">DATE:{{$project->date}}</h6>
                     </div> --}}
 
-                    <a href="{{route('project.edit', $project->id)}}"> <button type="button" class="btn btn-success">Edit</button></a>
+                    <div class="d-flex justify-content-center">
+                        <a href="{{route('project.edit', $project->id)}}"> <button type="button" class="btn btn-success">Edit</button></a>
+
+                        <form action="{{ route('project.delete', $project ->id) }}" method="POST">
+
+                            @csrf
+                            @method("DELETE")
+
+                            <button  type="submit" class="btn btn-danger ms-5">Delete</button>
+                        </form>
+
+                    </div>
+
                 </div>
             @endforeach
         </ul>

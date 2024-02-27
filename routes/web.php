@@ -30,3 +30,6 @@ Route::put('/edit/{id}',[ProjectController::class, 'update'])
 //update
 Route::get('/project/{id}',[ProjectController::class, 'show'])
     ->name('project.show');
+
+Route::delete('/project/{id}/delete',[ProjectController::class, 'delete'])
+    ->name('project.delete');

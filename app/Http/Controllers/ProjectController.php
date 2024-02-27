@@ -94,6 +94,17 @@ class ProjectController extends Controller
 
         return redirect()->route('project.show', $project ->id);
     }
+
+    public function delete($id){
+
+        $project = Project :: find($id);
+        $project->technologies()->sync([]);
+        $project->delete();
+
+        return redirect()->route('project.index');
+
+    }
+
 }
 
 
