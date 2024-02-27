@@ -26,3 +26,7 @@ Route::get('/edit/{id}',[ProjectController::class, 'edit'])
 //update
 Route::put('/edit/{id}',[ProjectController::class, 'update'])
     ->name('project.update');
+
+//update
+Route::get('/project/{id}',[ProjectController::class, 'show'])
+    ->name('project.show');

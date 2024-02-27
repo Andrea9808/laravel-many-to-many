@@ -15,6 +15,12 @@ class ProjectController extends Controller
         return view('pages.index', compact('projects'));
     }
 
+    public function show($id){
+        $projects = Project :: find($id);
+
+        return view('pages.show', compact('projects'));
+    }
+
 
     public function create(){
 

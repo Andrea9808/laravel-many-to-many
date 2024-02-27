@@ -10,19 +10,19 @@
             <div class="project-container">
                 <h1 class="project-title">Project:</h1>
                 <li>
-                    <h2>NAME:{{$project->name}}</h2>
-                    <h2>DESCRIPTION:{{$project->description}}</h2>
-                    <h2>TECHNOLOGY:
-                        @foreach ($project->technologies as $technology)
+                    <a href="{{route('project.show', $project ->id)}}"><h2>{{$project->name}}</h2></a>
+                    {{-- <h2>DESCRIPTION:{{$project->description}}</h2>
+                    <h2>TECHNOLOGY: --}}
+                        {{-- @foreach ($project->technologies as $technology)
                             {{$technology->name}}
-                        @endforeach
+                        @endforeach --}}
                     </h2>
                 </li>
-                <div class="type-details">
+                {{-- <div class="type-details">
                     <h3 class="type-title">Type Project</h3>
                     <h6 class="type-name">TYPE NAME:{{$project->type->name}}</h6>
                     <h6 class="type-date">DATE:{{$project->date}}</h6>
-                </div>
+                </div> --}}
 
                 <a href="{{route('project.edit', $project->id)}}"> <button type="button" class="btn btn-success">Edit</button></a>
             </div>
