@@ -15,6 +15,7 @@
              <h3 class="type-title">Type Project</h3>
              <h6 class="type-name">TYPE NAME:{{$projects->type->name}}</h6>
              <h6 class="type-date">DATE:{{$projects->date}}</h6>
+             <img src="{{asset('storage/'.$projects -> image) }}" alt="img project">
         </div>
     </div>
 @endsection

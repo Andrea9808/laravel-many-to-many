@@ -21,6 +21,7 @@ class ProjectFactory extends Factory
             'name'=>fake()->word(),
             'description'=>fake()->sentence(),
             'date' => fake() -> dateTime(),
+            'image' => null,
 
         ];
     }

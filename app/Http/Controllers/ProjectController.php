@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Project;
 use App\Models\Type;
@@ -32,10 +33,15 @@ class ProjectController extends Controller
     public function store(Request $request){
         $data = $request->all();
 
+        $img = $data['image'];
+        $image_path = Storage :: disk('public') -> put('images', $img);
+
+
         $project = new Project();
         $project->name = $data['name'];
         $project->description = $data['description'];
         $project->date = $data['date'];
+        $project->image = $image_path;
 
         $type = Type::find($data['type_id']);
         $project->type()->associate($type);
@@ -65,10 +71,14 @@ class ProjectController extends Controller
     public function update(Request $request, $id){
         $data = $request->all();
 
+        // $img = $data['image'];
+        // $image_path = Storage :: disk('public') -> put('images', $img);
+
         $project = Project::find($id);
         $project->name = $data['name'];
         $project->description = $data['description'];
         $project->date = $data['date'];
+        // $project->image = $image_path;
 
         $type = Type::find($data['type_id']);
         $project->type()->associate($type);
@@ -82,7 +92,7 @@ class ProjectController extends Controller
        //le relazioni many to many dopo il save
        $project->technologies()->sync($data['technology_id']);
 
-        return redirect()->route('project.index');
+        return redirect()->route('project.show', $project ->id);
     }
 }
 

@@ -5,7 +5,7 @@
 @section('content')
     <div class="container form_">
         <h1 class="text-center">New Project</h1>
-        <form action="{{ route('project.store') }}" method="POST">
+        <form action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
 
@@ -53,6 +53,11 @@
             <div class="form-group">
                 <label for="date">Date:</label>
                 <input type="date" name="date" id="date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" name="image" id="image" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">CREATE</button>
