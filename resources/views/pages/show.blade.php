@@ -3,7 +3,7 @@
     <title>Home</title>
 @endsection
 @section('content')
-<h1>Project</h1>
+<h1 class="text-white">Project</h1>
     <div class="container">
         <div class="card">
             <h1>Name Project: {{$projects->name}}</h1>
@@ -18,4 +18,32 @@
              <img src="{{asset('storage/'.$projects -> image) }}" alt="img project">
         </div>
     </div>
+
+
+
+    <style>
+        body {
+            background-color: rgb(150, 20, 150)
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .type-title {
+            margin-top: 15px;
+        }
+
+        .type-name, .type-date {
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
 @endsection
+
