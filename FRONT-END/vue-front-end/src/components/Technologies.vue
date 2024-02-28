@@ -23,32 +23,37 @@ import axios from 'axios';
                 this.visibilityForm = true;
             },
             submitNewTechnology(){
-                axios.post('http://localhost:8000/api/v1/technologies',
+                axios.post('http://localhost:8000/api/v1/technologies/create',
                 this.newTechnology)
                     .then(res =>{
-                        const data = res.data;
-                        console.log(data);
+                      
+                        this.getTechnologies();
+                        this.visibilityForm = false;
+                        
                     })
                     .catch(err=>{
                         console.log(err);
                     });
-            }
-        },
-
-
-        mounted(){
-            axios.get('http://localhost:8000/api/v1/technologies')
+            },
+            getTechnologies(){
+                axios.get('http://localhost:8000/api/v1/technologies/index')
                 .then(res=>{
                     const data = res.data;
                     
-                    // if(data.status == 'success'){
-                        this.technologies = res.data.technologies;
-                    // }
+                    if(data.status == 'success'){
+                        this.technologies = data.technologies;
+                    }
 
                 })
                 .catch(err=>{
                     console.log(err);
                 })
+            }
+        },
+
+
+        mounted(){
+            this.getTechnologies();
         }
     }
 
