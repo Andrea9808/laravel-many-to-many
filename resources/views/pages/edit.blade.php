@@ -5,7 +5,7 @@
 @section('content')
     <div class="container form_">
         <h1 class="text-center">Edit your project</h1>
-        <form action="{{ route('project.update', $projects->id) }}" method="POST">
+        <form action="{{ route('project.update', $projects->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -73,10 +73,11 @@
                 <input type="date" name="date" id="date" class="form-control" value="{{$projects->date}}">
             </div>
 
-            {{-- <div class="form-group">
+
+            <div class="form-group">
                 <label for="image">Image:</label>
                 <input type="file" name="image" id="image" accept="image/" class="form-control" >
-            </div> --}}
+            </div>
 
             <button type="submit" class="btn btn-primary">EDIT</button>
         </form>

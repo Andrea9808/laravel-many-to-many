@@ -71,19 +71,20 @@ class ProjectController extends Controller
     public function update(Request $request, $id){
         $data = $request->all();
 
-        // $img = $data['image'];
-        // $image_path = Storage :: disk('public') -> put('images', $img);
+
 
         $project = Project::find($id);
         $project->name = $data['name'];
         $project->description = $data['description'];
         $project->date = $data['date'];
-        // $project->image = $image_path;
+
 
         $type = Type::find($data['type_id']);
         $project->type()->associate($type);
 
-
+        $img = $data['image'];
+        $image_path = Storage :: disk('public') -> put('images', $img);
+        $project->image = $image_path;
 
         // Generato prima il type_id
         $project->save();
