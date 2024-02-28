@@ -18,6 +18,9 @@ return new class extends Migration
 
             $table->string('name')-> unique();
 
+            //campo solo per il FRONT END in VUE
+            $table->text('description');
+
             $table->timestamps();
         });
     }

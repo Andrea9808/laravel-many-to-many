@@ -18,6 +18,7 @@ class TechnologyFactory extends Factory
     {
         return [
             'name'=>fake()->unique()->lastname(),
+            'description'=>fake()->sentence(),
         ];
     }
 }
