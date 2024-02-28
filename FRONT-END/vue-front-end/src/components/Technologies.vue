@@ -5,18 +5,45 @@ import axios from 'axios';
         name: 'Technologies',
         data(){
             return{
+                //array technology
                 technologies: [],
+                //visibility form
+                visibilityForm: false,
+                //new technology
+                newTechnology: {
+                    name: 'Insert Name',
+                    description: 'Insert Description',
+                }
+
             }
         },
+
+        methods: {
+            toggleCreateNewTechnology(){
+                this.visibilityForm = true;
+            },
+            submitNewTechnology(){
+                axios.post('http://localhost:8000/api/v1/technologies',
+                this.newTechnology)
+                    .then(res =>{
+                        const data = res.data;
+                        console.log(data);
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    });
+            }
+        },
+
 
         mounted(){
             axios.get('http://localhost:8000/api/v1/technologies')
                 .then(res=>{
                     const data = res.data;
                     
-                    if(data.status == 'success'){
-                        this.technologies = data.technologies;
-                    }
+                    // if(data.status == 'success'){
+                        this.technologies = res.data.technologies;
+                    // }
 
                 })
                 .catch(err=>{
@@ -29,14 +56,30 @@ import axios from 'axios';
 
 <template>
     <h1>Technologies:</h1>
-    <ul>
-        <li v-for="technology in technologies" :key="technology.id">
-            <hr>
-            <p>Name Technology: {{ technology.name }}</p>
-            <p>Description Technology: {{ technology.description }}</p>
-            <hr>
-        </li>
-    </ul>
+    <form v-if="visibilityForm"
+        @submit.prevent="submitNewTechnology"
+    >
+        <h2>Form</h2>
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" v-model="newTechnology.name">
+        <br>
+        <label for="description">Description:</label><br>
+        <input type="text" name="description" id="description" v-model="newTechnology.description">
+        <br>
+        <input  type="submit" value="Create">
+    </form>
+    <div v-else >
+        <button @click="toggleCreateNewTechnology">Insert new Technology</button>
+        <ul>
+            <li v-for="technology in technologies" :key="technology.id">
+                <hr>
+                <h3>Name Technology: {{ technology.name }}</h3>
+                <p>Description Technology: {{ technology.description }}</p>
+                <hr>
+            </li>
+        </ul> 
+    </div>
+   
 </template>
 
 <style scoped>
